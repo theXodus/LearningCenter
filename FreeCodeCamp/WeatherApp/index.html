@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Weather App</title>
+        <link rel="stylesheet" href="https://unpkg.com/tachyons@4.6.1/css/tachyons.min.css">
+        <link rel="stylesheet" href="main.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" charset="utf-8"></script>
+        <script src="main.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <div class="center shadow-1 j-blue white">
+            <div class="dt mw6 center">
+                <h2 class="dtc v-mid ph1">Today:</h2>
+                <div class="dtc v-mid">
+                    <img class='mw5 br3 ba bg-white b--black h3 w3' id="main-icon"/>
+                </div>
+                <div class="dtc v-mid pl3">
+                    <p id="location"></p>
+                    <p class='f6' id="date"></p>
+                    <p id="desc"></p>
+                </div>
+            </div>
+        </div>
+        <!-- 3 day forecast -->
+        <ul class="pl0 mt0 mw7 center"></ul>
+        <!-- switch button -->
+        <a class="f5 no-underline black bg-animate hover-bg-black hover-white inline-flex items-center pa3 ba border-box" data-role='imperial' id="switch-btn">Switch to Metric</a>
+        <!-- credit link -->
+        <a href="https://www.wunderground.com" target="_blank"><img src="https://icons.wxug.com/logos/JPG/wundergroundLogo_4c_horz.jpg" alt="WeatherUnderground" class="logo"/></a>
+
+    </body>
+</html>
