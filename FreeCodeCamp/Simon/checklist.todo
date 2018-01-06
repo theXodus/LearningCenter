@@ -1,0 +1,25 @@
+cmd-enter	tasks:add
+shift-cmd-enter	tasks:add-above
+cmd-d	tasks:complete
+shift-cmd-A	tasks:archive
+ctrl-c	tasks:cancel
+shift-cmd-L	tasks:convert-to-task
+ctrl-s	tasks:set-timestamp
+Current:
+
+
+
+☐ User Story: If I press the wrong button, I am notified that I have done so,
+  and that series of button presses starts again to remind me of the pattern so I can try again.
+
+☐ User Story: If I want to restart, I can hit a button to do so, and the game will return to a single step.
+
+☐ User Story: I can play in strict mode where if I get a button press wrong,
+  it notifies me that I have done so, and the game restarts at a new random series of button presses.
+
+Archive:
+  ✔ User Story: DONE I am presented with a random series of button presses. @done(2017-08-05 17:16)
+  ✔ User Story: DONE I hear a sound that corresponds to each button both when the series of button presses plays, and when I personally press a button. @done(2017-08-05 17:17)
+  ✔ User Story: DONE I can see how many steps are in the current series of button presses. @done(2017-08-05 17:17)
+  ✔ User Story: DONE I can win the game by getting a series of 20 steps correct. I am notified of my victory, then the game starts over. @done(2017-08-05 17:17)
+  ✔ User Story: DONE Each time I input a series of button presses correctly, I see the same series of button presses but with an additional step. @done(2017-08-05 17:15)

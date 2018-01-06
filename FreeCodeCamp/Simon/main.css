@@ -1,0 +1,36 @@
+div{
+  float: left;
+}
+.green {
+  width: 250px;
+  height: 250px;
+  background-color: #009600;
+}
+.green-bright {
+  filter: brightness(150%);
+}
+.red {
+  width: 250px;
+  height: 250px;
+  background-color: #e00000;
+}
+.red-bright {
+  filter: brightness(150%);
+}
+.yellow {
+  width: 250px;
+  height: 250px;
+  background-color: #ffe000;
+  clear: left;
+}
+.yellow-bright {
+  filter: brightness(150%);
+}
+.blue {
+  width: 250px;
+  height: 250px;
+  background-color: #0000e0;
+}
+.blue-bright {
+  filter: brightness(150%);
+}

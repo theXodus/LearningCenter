@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pomo</title>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.1/tachyons.css">
+  </head>
+  <!-- STYLE -->
+  <style media="screen">
+    h1 {
+      font-size: 4em;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+  </style>
+
+  <!-- BODY -->
+  <body>
+      <div class="fl w-third w-33 h5">
+      </div>
+      <div class="fl w-third tc w-34 h5">
+        <h1 id="timer" class=""></h1>
+        <a id="minus" class="f3 link dim ba ph1 bottom-2 mb2 dib black">-</a>
+        <a id="btn" class="f3 ba link ph1"></a>
+        <a id="plus" class="f3 link dim ba ph1 bottom-2 mb2 dib black">+</a>
+      </div>
+      <div class="fl w-third w-33 h5">
+      </div>
+  </body>
+
+  <!-- JAVSCRIPT -->
+  <script type="text/javascript">
+    // time and str_pad_left function from http://stackoverflow.com/a/3733257/5001009
+    var ding = new Audio('http://soundjax.com/reddo/56895%5EDING.mp3');
+    var minutes, seconds, finalTime, startPomo;
+    var customTime = document.getElementById('time');
+    var minus = document.getElementById('minus');
+    var plus = document.getElementById('plus');
+    var time = 1500;
+    var clock = document.getElementById('timer');
+    var button = document.getElementById('btn');
+    var timerRunning = false;
+    var onBreak = false;
+    setButton("Start")
+    setTime(time);
+
+    function setButton(str) {
+      document.getElementById("btn").innerHTML = str
+    }
+
+    function str_pad_left(string,pad,length) {
+      return (new Array(length+1).join(pad)+string).slice(-length);
+    }
+
+    function setTime(time) {
+      minutes = Math.floor(time / 60);
+      seconds = time - minutes * 60;
+      finalTime = str_pad_left(minutes,'0',2)+':'+str_pad_left(seconds,'0',2);
+      clock.innerHTML = finalTime
+    }
+
+    function endTimer() {
+      timerRunning = false;
+
+      if (onBreak) {
+        setButton("Start Break")
+      } else {
+        setButton("Start")
+      }
+
+      time = 5;
+      setTime(time);
+      ding.play();
+      clearInterval(startPomo);
+    }
+
+    function countdown() {
+      if (timerRunning) {setButton("Stop")}
+      time--;
+      setTime(time);
+      if (time < 0) {
+        onBreak = !onBreak;
+        endTimer()
+      }
+    }
+
+    function startTimer() {
+      timerRunning = !timerRunning;
+      if (timerRunning == false) {
+        endTimer()
+      } else {
+        startPomo = setInterval(countdown, 1000);
+      }
+    }
+
+    function subtractTime() {
+      if (time === 0 || timerRunning) { return };
+      time -= 60
+      setTime(time)
+    }
+
+    function addTime() {
+      if (timerRunning) { return };
+      time += 60
+      setTime(time)
+    }
+
+    button.addEventListener("click", startTimer);
+    minus.addEventListener("click", subtractTime);
+    plus.addEventListener("click", addTime);
+
+  </script>
+</html>
